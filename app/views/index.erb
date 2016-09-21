@@ -1,0 +1,38 @@
+<form action='/' method='post'>
+  <!-- <select name='team'> -->
+    <!-- <option value='boston-red-sox'>Boston Red Sox</option>
+    <option value='new-york-yankees'>New York Yankees</option>
+    <option value='washington-redskins'>Washington Redskins</option> -->
+    <input type='text' name='team' placeholder='Enter Team'>
+    <input type='submit' value='submit'>
+  <!-- </select> -->
+</form>
+
+
+
+<% if @teams %>
+
+
+
+<h2>Next 10 games:</h2>
+
+<% @teams.each do |team| %>
+
+<table>
+
+
+<tr><td><%= team.title %></td><td rowspan='4'><img src='<%= team.image %>'></td></tr>
+<tr><td><%= team.date %></td></tr>
+<tr><td><%= team.stadium %></td></tr>
+<tr><td><%= team.location %></td></tr>
+
+</table>
+<hr>
+
+
+
+<% end %>
+
+</table>
+
+<% end %>

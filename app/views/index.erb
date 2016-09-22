@@ -1,30 +1,21 @@
-<form action='/' method='post'>
-  <!-- <select name='team'> -->
-    <!-- <option value='boston-red-sox'>Boston Red Sox</option>
-    <option value='new-york-yankees'>New York Yankees</option>
-    <option value='washington-redskins'>Washington Redskins</option> -->
-    <input type='text' name='team' placeholder='Enter Team'>
-    <input type='submit' value='submit'>
-  <!-- </select> -->
-</form>
-
-
-
-<% if @teams %>
+<% if @events %>
 
 
 
 <h2>Next 10 games:</h2>
 
-<% @teams.each do |team| %>
+<% @events.each do |event| %>
 
 <table>
 
 
-<tr><td><%= team.title %></td><td rowspan='4'><img src='<%= team.image %>'></td></tr>
-<tr><td><%= team.date %></td></tr>
-<tr><td><%= team.stadium %></td></tr>
-<tr><td><%= team.location %></td></tr>
+<tr><td><%= event.title %></td><td rowspan='7'><img src='<%= event.image %>'></td></tr>
+<tr><td><%= event.date %></td></tr>
+<tr><td><%= event.stadium %></td></tr>
+<tr><td><%= event.location %></td></tr>
+<tr><td>Tickets Available: <%= event.ticket_count %></td></tr>
+<tr><td>Lowest Price: $<%= event.lowest_price %>0</td></tr>
+<tr><td><a href='<%= event.buy_url %>'>Buy Tickets</a></td></tr>
 
 </table>
 <hr>
@@ -34,5 +25,17 @@
 <% end %>
 
 </table>
+
+<form action='/' method='post'>
+    <input type='text' name='event' placeholder='Enter event'>
+    <input type='submit' value='submit'>
+</form>
+
+<% else %>
+
+<form action='/' method='post'>
+    <input type='text' name='event' placeholder='Enter event'>
+    <input type='submit' value='submit'>
+</form>
 
 <% end %>

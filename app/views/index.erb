@@ -2,11 +2,11 @@
 
 
 
-<h2>Next 10 games:</h2>
+<h2>Next 10 Events:</h2>
 
 <% @events.each do |event| %>
 
-<table>
+<table class='event_table'>
 
 
 <tr><td><%= event.title %></td><td rowspan='7'><img src='<%= event.image %>'></td></tr>
@@ -14,8 +14,8 @@
 <tr><td><%= event.stadium %></td></tr>
 <tr><td><%= event.location %></td></tr>
 <tr><td>Tickets Available: <%= event.ticket_count %></td></tr>
-<tr><td>Lowest Price: $<%= event.lowest_price %>0</td></tr>
-<tr><td><a href='<%= event.buy_url %>'>Buy Tickets</a></td></tr>
+<tr><td>Lowest Price: <%= event.ticket_count > 0 ? "$#{event.lowest_price}0" : 'N/A' %></td></tr>
+<tr><td><a target="_blank" href='<%= event.buy_url %>'>Buy Tickets</a></td></tr>
 
 </table>
 <hr>
@@ -33,9 +33,12 @@
 
 <% else %>
 
-<form action='/' method='post'>
-    <input type='text' name='event' placeholder='Enter event'>
-    <input type='submit' value='submit'>
+<h1 id='hi'>Hello</h1>
+<div id='homepage_div'>
+
+<form id='formy' action='/' method='post'>
+    <input id='homepage_form' type='text' name='event' placeholder='Enter event'>
 </form>
 
+</div>
 <% end %>

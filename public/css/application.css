@@ -1,0 +1,39 @@
+#homepage_form {
+  font-size: 40px;
+  border: 1px solid red;
+}
+
+#formy {
+  margin: auto;
+  margin-top: 30%;
+  width: 50%;
+}
+
+#container {
+  max-width: 1000px;
+  min-height: 800px;
+  border: 2px solid red;
+  margin: auto;
+  padding: 30px;
+
+}
+
+.event_table {
+  margin: 20px;
+  border: 1px solid green;
+  margin: auto;
+  width: 80%;
+}
+
+.event_table img {
+  height: 75%;
+}
+
+.event_table td {
+  margin: 20px;
+  padding: 20px;
+}
+
+#hi {
+  text-align: center;
+}

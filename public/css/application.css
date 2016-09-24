@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 #homepage_form {
   font-size: 40px;
   border: 1px solid red;
@@ -37,3 +42,72 @@
 #hi {
   text-align: center;
 }
+
+#header {
+  height: 60px;
+  background-color: black;
+  color: white;
+}
+
+
+#header input {
+  color: black;
+  font-size: 1.2em;
+}
+
+#header a, a:visited {
+  color: white;
+  text-decoration: none;
+  font-size: 1.6em;
+  padding: 15px;
+}
+
+#create_account_link {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+#header a:hover {
+  color: black;
+  background-color: darkgray;
+}
+
+#login_form input {
+  margin: 5px;
+  padding: 10px;
+}
+
+#header_greeting {
+  font-size: 1.6em;
+  padding: 12px;
+}
+
+#logout_button {
+     background: transparent;
+     border:none;
+     font: inherit;
+     cursor: pointer;
+     position: absolute;
+     right: 0;
+     top: 0;
+     color: white;
+     text-decoration: none;
+     font-size: 1.6em;
+     position: absolute;
+     right: 0;
+     top: 0;
+     padding: 15px;
+     outline: none;
+}
+
+#logout_button:hover {
+  color: black;
+  background: gray;
+}
+
+#home_link {
+  position: absolute;
+  left: 40%;
+}
+

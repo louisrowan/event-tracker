@@ -1,0 +1,30 @@
+<div id='header'>
+
+<a id='home_link' href='/'>Home</a>
+
+<% if current_user %>
+
+<p id='header_greeting'>Hello, <%= current_user.username %></p>
+
+
+<form action='/sessions/<%= current_user.id %>' method='post'>
+<input type='hidden' name='_method' value='delete'>
+<button id='logout_button'>Log out</button>
+</form>
+
+
+<% else %>
+
+
+<form id='login_form' action='/sessions' method='post'>
+  <input type='text' name='session[username]' placeholder='Username'>
+  <input type='password' name='session[password]' placeholder='Password'>
+  <input type='submit' value='Log in'>
+</form>
+
+<a id='create_account_link' href='/users/new'>Create Account</a>
+
+
+<% end %>
+
+</div>

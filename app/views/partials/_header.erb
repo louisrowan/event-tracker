@@ -4,7 +4,10 @@
 
 <% if current_user %>
 
+<a id='header_profile' href='/users/<%= current_user.id %>'>Your Profile</a>
+
 <p id='header_greeting'>Hello, <%= current_user.username %></p>
+
 
 
 <form action='/sessions/<%= current_user.id %>' method='post'>

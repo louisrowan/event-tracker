@@ -18,12 +18,18 @@ post '/users' do
 end
 
 get '/users/:id' do
+  erb :'/users/show'
 end
 
 get '/users/:id/edit' do
 end
 
 put '/users/:id' do
+  p current_user.events
+  event = Event.find(params[:id])
+  current_user.events << event
+  p current_user.events
+  redirect '/'
 end
 
 delete '/users/:id' do

@@ -111,3 +111,13 @@
   left: 40%;
 }
 
+#header_profile {
+  position: absolute;
+  left: 60%;
+}
+
+#footer {
+  background-color: black;
+  height: 60px;
+  width: 100%;
+}

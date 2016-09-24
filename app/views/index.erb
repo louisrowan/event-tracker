@@ -18,6 +18,13 @@
 <tr><td><a target="_blank" href='<%= event.buy_url %>'>Buy Tickets</a></td></tr>
 
 </table>
+<% if current_user %>
+  <form action='/users/<%= current_user.id %>' method='post'>
+  <input type='hidden' name='_method' value='put'>
+  <button value='<%= event.id %>'>Subscribe</button>
+  </form>
+<% end %>
+
 <hr>
 
 

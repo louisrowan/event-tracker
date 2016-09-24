@@ -17,6 +17,7 @@ require 'logger'
 require 'pry'
 require 'awesome_print'
 require 'httparty'
+require 'bcrypt'
 
 require 'sinatra'
 require "sinatra/reloader" if development?

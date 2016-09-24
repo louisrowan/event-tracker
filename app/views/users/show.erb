@@ -1,0 +1,21 @@
+<h1>Hello, <%= current_user.username %>!</h1>
+
+<h2>Here are your watched events</h2>
+
+<% current_user.events.each do |event| %>
+
+<table class='event_table'>
+
+
+<tr><td><%= event.title %></td><td rowspan='7'><img src='<%= event.image %>'></td></tr>
+<tr><td><%= event.date %></td></tr>
+<tr><td><%= event.stadium %></td></tr>
+<tr><td><%= event.location %></td></tr>
+<tr><td>Tickets Available: <%= event.ticket_count %></td></tr>
+<tr><td>Lowest Price: <%= event.ticket_count > 0 ? "$#{event.lowest_price}0" : 'N/A' %></td></tr>
+<tr><td><a target="_blank" href='<%= event.buy_url %>'>Buy Tickets</a></td></tr>
+
+</table>
+
+<% end %>
+

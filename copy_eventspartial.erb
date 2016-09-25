@@ -1,10 +1,4 @@
-<% if @events %>
-
-
-
-<h2>Next 10 Events:</h2>
-
-<% @events.each do |event| %>
+<% list.events.each do |event| %>
 
 <table class='event_table'>
 
@@ -18,37 +12,12 @@
 <tr><td><a target="_blank" href='<%= event.buy_url %>'>Buy Tickets</a></td></tr>
 
 </table>
+
 <% if current_user %>
-  <form action='/users/<%= current_user.id %>' method='post'>
+  <form id='subscribe_button' action='/users/<%= current_user.id %>' method='post'>
   <input type='hidden' name='_method' value='put'>
   <button value='<%= event.id %>'>Subscribe</button>
   </form>
 <% end %>
 
-<hr>
-
-
-
 <% end %>
-
-</table>
-
-<form action='/' method='post'>
-    <input type='text' name='event' placeholder='Enter event'>
-    <input type='submit' value='submit'>
-</form>
-
-<% else %>
-
-<h1 id='hi'>Hello</h1>
-<div id='homepage_div'>
-
-<form id='formy' action='/' method='post'>
-    <input id='homepage_form' type='text' name='event' placeholder='Enter event'>
-</form>
-
-</div>
-<% end %>
-
-<div id='extra'>
-</div>

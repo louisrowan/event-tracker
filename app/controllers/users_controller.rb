@@ -18,6 +18,8 @@ post '/users' do
 end
 
 get '/users/:id' do
+  @list = List.create
+  @list.events = current_user.events
   erb :'/users/show'
 end
 

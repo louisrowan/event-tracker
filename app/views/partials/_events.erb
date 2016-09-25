@@ -1,16 +1,39 @@
 <% list.events.each do |event| %>
 
+<div class='event_div'>
+
+<h1 class='event_title center'><%= event.title %></h1><br>
+<img class='img_center' src='<%= event.image %>'>
+
+
 <table class='event_table'>
 
 
-<tr><td><%= event.title %></td><td rowspan='7'><img src='<%= event.image %>'></td></tr>
-<tr><td><%= event.date %></td></tr>
-<tr><td><%= event.stadium %></td></tr>
-<tr><td><%= event.location %></td></tr>
-<tr><td>Tickets Available: <%= event.ticket_count %></td></tr>
-<tr><td>Lowest Price: <%= event.ticket_count > 0 ? "$#{event.lowest_price}0" : 'N/A' %></td></tr>
-<tr><td><a target="_blank" href='<%= event.buy_url %>'>Buy Tickets</a></td></tr>
 
+<tr><td><%= event.date %></td>
+<td><%= event.stadium %></td>
+<td><%= event.location %></td></tr>
 </table>
+<div class='div_center'><button class='ticket_info_button'>Ticket Info</button></div>
+
+<div class='ticket_info_div'>
+
+<table class='event_table'>
+<tr><td>Tickets Available: <%= event.ticket_count %></td>
+<td>Lowest Price: <%= event.ticket_count > 0 ? "$#{event.lowest_price}0" : 'N/A' %></td>
+<td><a target="_blank" href='<%= event.buy_url %>'>Buy Tickets</a></td></tr>
+</table>
+</div>
+
+
+
+<% if current_user %>
+  <form id='subscribe_button' action='/users/<%= current_user.id %>' method='post'>
+  <input type='hidden' name='_method' value='put'>
+  <button value='<%= event.id %>'>Subscribe</button>
+  </form>
+<% end %>
+
+</div>
 
 <% end %>

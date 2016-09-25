@@ -1,6 +1,8 @@
 $(document).ready(function() {
 
   homeFormEnterListener();
+  ticketInfoButtonListener();
+  registrationButtonListener();
 
 });
 
@@ -8,14 +10,11 @@ $(document).ready(function() {
 var homeFormEnterListener = function(){
   $('#formy').on('submit', function(e){
     e.preventDefault();
-    console.log('in form listener')
 
     var homeForm = $(this)
     var url = homeForm.attr('action')
     var method = homeForm.attr('method')
     var data = homeForm.serialize();
-    console.log('url = ' + url + ' and method = ' + method)
-    console.log(data)
 
     var request = $.ajax({
       url: url,
@@ -24,8 +23,6 @@ var homeFormEnterListener = function(){
     })
 
     request.done(function(response){
-      console.log('request good')
-      console.log(response)
       $('#extra').html(response)
       $('#formy').toggle();
 
@@ -37,5 +34,21 @@ var homeFormEnterListener = function(){
       console.log('request bad')
     })
 
+  })
+}
+
+
+var ticketInfoButtonListener = function(){
+  $('#extra').on('mouseover', '.ticket_info_button', function(event){
+    console.log('mouseover')
+    $(this).parent().siblings('.ticket_info_div').toggle();
+  })
+}
+
+var registrationButtonListener = function(){
+  $('#create_account_link').on('click', function(event){
+    event.preventDefault();
+    $('#registration_div').toggle();
+    $('#dimmer_div').toggle();
   })
 }

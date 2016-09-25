@@ -1,0 +1,13 @@
+<div id='registration_div'>
+<div class='div_center'>
+<h1>Create Account</h1><hr><br>
+<form id='new_user_form' action='/users' method='post'>
+  <span class='required'>*</span><input type='text' name='user[username]' placeholder='username'><br>
+  <span class='required'>*</span><input type='password' name='user[password]' placeholder='password'><br>
+  <span class='required'>*</span><input type='text' name='user[email]' placeholder='email'><br>
+  <span class='hidden'>*</span><input type='text' name='user[state]' placeholder='state'><br>
+  <span class='hidden'>*</span><input type='text' name='user[city]' placeholder='city'><br><br><span class='required'>*  Required Fields</span><hr><br>
+  <input id='registration_submit' type='submit' value='Sign Up'>
+</form>
+</div>
+</div>

@@ -9,6 +9,7 @@ class CreateEvents < ActiveRecord::Migration
       t.integer :ticket_count
       t.float :lowest_price
       t.string :buy_url
+      t.integer :list_id
 
       t.timestamps null: false
     end

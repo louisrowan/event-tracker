@@ -1,7 +1,41 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+  homeFormEnterListener();
+
 });
+
+
+var homeFormEnterListener = function(){
+  $('#formy').on('submit', function(e){
+    e.preventDefault();
+    console.log('in form listener')
+
+    var homeForm = $(this)
+    var url = homeForm.attr('action')
+    var method = homeForm.attr('method')
+    var data = homeForm.serialize();
+    console.log('url = ' + url + ' and method = ' + method)
+    console.log(data)
+
+    var request = $.ajax({
+      url: url,
+      type: method,
+      data: data
+    })
+
+    request.done(function(response){
+      console.log('request good')
+      console.log(response)
+      $('#extra').html(response)
+      $('#formy').toggle();
+
+
+
+    })
+
+    request.fail(function(response){
+      console.log('request bad')
+    })
+
+  })
+}

@@ -4,10 +4,15 @@ get '/' do
 end
 
 post '/' do
-  @events = []
+  @list = List.create
   create_body(params[:event]).each do |event|
     t = Event.create(create_event_hash(event))
-    @events << t
+    @list.events << t
   end
-  erb :index
+  p @list
+  if request.xhr?
+    erb :'/partials/_events', layout: false, locals: { list: @list}
+  else
+    erb :index
+  end
 end

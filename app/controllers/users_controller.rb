@@ -6,8 +6,10 @@ get '/users/new' do
 end
 
 post '/users' do
-  puts "in /user post"
-  p params[:user]
+  if params[:user][:password] == ""
+    @errors = 'password too short'
+    return erb :'/users/new'
+  end
   @user = User.new(params[:user])
   if @user.save
     session[:id] = @user.id

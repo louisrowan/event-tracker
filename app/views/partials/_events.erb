@@ -30,8 +30,10 @@
 <% if current_user %>
   <form id='subscribe_button' action='/users/<%= current_user.id %>' method='post'>
   <input type='hidden' name='_method' value='put'>
-  <button value='<%= event.id %>'>Subscribe</button>
+  <input type='hidden' name='event_id' value='<%= event.id %>'>
+  <button>Subscribe</button>
   </form>
+  <p><%= event.id %></p>
 <% end %>
 
 </div>

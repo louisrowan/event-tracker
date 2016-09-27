@@ -29,10 +29,23 @@
 
 
   <% if current_user %>
+
+    <% if subscription_invalid?(event) %>
+
+    <form class='subscribe_button_form' action='/subscriptions' method='post'>
+      <input type='hidden' name='event_id' value='<%= event.id %>'>
+      <button>Un-Subscribe</button>
+    </form>
+
+    <% else %>
+
     <form class='subscribe_button_form' action='/subscriptions' method='post'>
       <input type='hidden' name='event_id' value='<%= event.id %>'>
       <button>Subscribe</button>
     </form>
+
+    <% end %>
+
   <% end %>
 
   </div>

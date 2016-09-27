@@ -6,6 +6,7 @@ $(document).ready(function() {
   cancelTicketInfoListener();
   imgHoverListener();
   subscribeButtonListener();
+  unSubscribeButtonListener();
 
 });
 
@@ -44,8 +45,8 @@ var ticketInfoButtonListener = function(){
     $(this).parent().siblings('.ticket_info_div').toggle();
     $('#dimmer_div').toggle();
     $('html, body').css({
-    'overflow': 'hidden',
-    'height': '100%'
+    'overflow': 'hidden'
+    // 'height': '100%'
 });
   })
 }
@@ -64,15 +65,14 @@ var cancelTicketInfoListener = function(){
     console.log(this)
     $('#dimmer_div').toggle();
     $('html, body').css({
-    'overflow': 'auto',
-    'height': 'auto'
+    'overflow': 'auto'
+    // 'height': 'auto'
 });
   })
 }
 
 var imgHoverListener = function(){
   $('.list_content_div').on('mouseover', '.event_div', function(){
-    console.log('hovering')
     $(this).children('img').css('opacity', '1')
   })
 }
@@ -106,4 +106,34 @@ var subscribeButtonListener = function(){
     })
 
   })
+}
+
+var unSubscribeButtonListener = function(){
+  $('.list_content_div').on('submit', '.un_subscribe_button_form', function(event){
+    event.preventDefault();
+
+    var unSubForm = $(this)
+
+    var url = unSubForm.attr('action')
+    var type = unSubForm.children('.unsub_hidden_input').attr('value')
+    var data = unSubForm.serialize();
+
+    var request = $.ajax({
+      url: url,
+      type: type,
+      data: data
+    })
+
+    request.done(function(response){
+      console.log('success')
+      unSubForm.children('button').remove();
+      unSubForm.append('Subscription Canceled')
+    })
+
+    request.fail(function(response){
+      console.log('fail')
+    })
+
+  } )
+
 }

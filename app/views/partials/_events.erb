@@ -17,6 +17,7 @@
   <div class='div_center'><button class='ticket_info_button'>Ticket Info</button></div>
 
     <div class='ticket_info_div'>
+    <h3 class='center tix_header'><%= event.title %></h3>
 
       <table class='event_table'>
         <tr><td>Tickets Available: <%= event.ticket_count %></td>
@@ -33,7 +34,8 @@
 
     <% if subscription_invalid?(event) %>
 
-    <form class='subscribe_button_form' action='/subscriptions' method='post'>
+    <form class='un_subscribe_button_form' action="/subscriptions" method='post'>
+    <input class='unsub_hidden_input' type='hidden' name='_method' value='delete'>
       <input type='hidden' name='event_id' value='<%= event.id %>'>
       <button>Un-Subscribe</button>
     </form>
@@ -53,3 +55,4 @@
 
   <% end %>
 </div>
+<br>

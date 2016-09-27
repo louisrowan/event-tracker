@@ -26,11 +26,8 @@ var homeFormEnterListener = function(){
     })
 
     request.done(function(response){
-      $('#extra').html(response)
+      $('.list_content_div').html(response)
       $('#formy')[0].reset();
-
-
-
     })
 
     request.fail(function(response){
@@ -42,7 +39,7 @@ var homeFormEnterListener = function(){
 
 
 var ticketInfoButtonListener = function(){
-  $('#extra').on('click', '.ticket_info_button', function(event){
+  $('.list_content_div').on('click', '.ticket_info_button', function(event){
     console.log('mouseover')
     $(this).parent().siblings('.ticket_info_div').toggle();
     $('#dimmer_div').toggle();
@@ -62,7 +59,7 @@ var registrationButtonListener = function(){
 }
 
 var cancelTicketInfoListener = function(){
-  $('#extra').on('click', '.ticket_cancel', function(){
+  $('.list_content_div').on('click', '.ticket_cancel', function(){
     $(this).parent().hide();
     console.log(this)
     $('#dimmer_div').toggle();
@@ -74,14 +71,14 @@ var cancelTicketInfoListener = function(){
 }
 
 var imgHoverListener = function(){
-  $('#extra').on('mouseover', '.event_div', function(){
+  $('.list_content_div').on('mouseover', '.event_div', function(){
     console.log('hovering')
     $(this).children('img').css('opacity', '1')
   })
 }
 
 var subscribeButtonListener = function(){
-  $('#extra').on('submit', '.subscribe_button_form', function(event){
+  $('.list_content_div').on('submit', '.subscribe_button_form', function(event){
     event.preventDefault();
     console.log('in subscribe listener')
     var subscribeForm = $(this)

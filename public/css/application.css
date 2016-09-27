@@ -69,9 +69,9 @@ body {
 .event_div {
   display: inline-block;
   width: 45%;
+  min-width: 400px;
   box-sizing: border-box;
-  border-radius: 25%;
-  border: 2px solid green;
+  border-bottom: 2px solid black;
 }
 
 .center {

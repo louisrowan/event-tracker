@@ -1,13 +1,12 @@
 <h1 id='hi'>EventTracker</h1>
 
-<% if @list %>
 
-  <%= erb :'/partials/_events', layout: false, locals: { list: @list} %>
+<div class='list_content_div'>
+  <% if @list %>
 
-<% end %>
+    <%= erb :'/partials/_events', layout: false, locals: { list: @list} %>
 
-
-<div id='extra'>
+  <% end %>
 </div>
 
 

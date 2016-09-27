@@ -2,12 +2,10 @@ get '/sessions/new' do
 end
 
 post '/sessions' do\
-  puts "in sessions post"
-  p params
   @user = User.authenticate(params[:session])
   if @user
     session[:id] = @user.id
-    erb :'/users/show'
+    redirect "/users/#{@user.id}"
   else
     redirect '/'
   end

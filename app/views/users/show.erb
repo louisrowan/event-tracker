@@ -2,7 +2,8 @@
 
 <h2 class='center'>Here are your watched events</h2>
 
-<% if @list %>
-<%= erb :'/partials/_events', layout: false, locals: { list: @list} %>
-<% end %>
-
+<div class='list_content_div'>
+  <% if @list %>
+  <%= erb :'/partials/_events', layout: false, locals: { list: @list} %>
+  <% end %>
+</div>

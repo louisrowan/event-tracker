@@ -4,24 +4,37 @@
   font-family: serif;
 }
 
+body {
+  background-color: white;
+}
+
 #homepage_form {
-  font-size: 40px;
+  font-size: 30px;
+  padding: 10px;
   box-shadow: 2px 2px 2px 2px #ccc inset;
   text-align: center;
+  border-radius: 5px;
+}
+
+#homepage_div {
+  margin: auto;
 }
 
 #formy {
   margin: auto;
-  margin-top: 30%;
-  width: 50%;
 }
 
 #container {
   max-width: 1000px;
-  min-height: 800px;
-  border: 2px solid red;
+  min-height: 600px;
+  background-color: white;
   margin: auto;
-  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border-left: 5px solid gray;
+  border-right: 5px solid gray;
 
 }
 
@@ -30,12 +43,13 @@
   border: 1px solid green;
   margin: auto;
   width: 80%;
+  height: 100px;
 }
 
 
 .event_table td {
-  margin: 20px;
-  padding: 20px;
+  margin: 10px;
+  padding: 10px;
   text-align: center;
 }
 
@@ -43,91 +57,21 @@
   text-align: center;
 }
 
-#header {
-  height: 60px;
-  background-color: black;
-  color: white;
+
+
+
+.list_of_events {
+  margin: auto;
+  text-align: center;
 }
-
-
-#header input {
-  color: black;
-  font-size: 1.2em;
-}
-
-#header a, #header a:visited {
-  color: white;
-  text-decoration: none;
-  font-size: 1.6em;
-  padding: 15px;
-}
-
-#create_account_link {
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-
-#header a:hover {
-  color: black;
-  background-color: darkgray;
-}
-
-#login_form input {
-  margin: 5px;
-  padding: 10px;
-}
-
-#header_greeting {
-  font-size: 1.6em;
-  padding: 12px;
-}
-
-#logout_button {
-     background: transparent;
-     border:none;
-     font: inherit;
-     cursor: pointer;
-     position: absolute;
-     right: 0;
-     top: 0;
-     color: white;
-     text-decoration: none;
-     font-size: 1.6em;
-     position: absolute;
-     right: 0;
-     top: 0;
-     padding: 15px;
-     outline: none;
-}
-
-#logout_button:hover {
-  color: black;
-  background: gray;
-}
-
-#home_link {
-  position: absolute;
-  left: 40%;
-}
-
-#header_profile {
-  position: absolute;
-  left: 60%;
-}
-
-#footer {
-  background-color: black;
-  height: 60px;
-  width: 100%;
-}
-
-
-
 
 
 .event_div {
-  border: 3px solid green;
+  display: inline-block;
+  width: 45%;
+  box-sizing: border-box;
+  border-radius: 25%;
+  border: 2px solid green;
 }
 
 .center {
@@ -142,7 +86,8 @@
 .img_center {
   display: block;
   margin: 0 auto;
-  width: 50%;
+  width: 70%;
+  opacity: .75;
 }
 
 .div_center {
@@ -156,7 +101,26 @@
 }
 
 .ticket_info_div {
+  position: fixed;
+  width: 30%;
+  min-width: 400px;
+  height: 200px;
+  box-shadow: 2px 2px 2px 2px #ccc inset;
+  border-radius: 10px;
+  background-color: white;
+  left: 35%;
+  top: 40%;
   display: none;
+  z-index: 2;
+  text-align: center;
+}
+
+.ticket_info_div table {
+  margin: 30px;
+}
+
+.ticket_cancel {
+  margin: auto;
 }
 
 #new_user_form input {
@@ -220,4 +184,8 @@
   color: red;
   font-size: 1.5em;
   padding: 10px;
+}
+
+.event_header_div {
+  height: 100px;
 }

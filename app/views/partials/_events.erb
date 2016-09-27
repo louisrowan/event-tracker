@@ -1,44 +1,41 @@
 <div class='list_of_events'>
 
-<% list.events.each do |event| %>
+  <% list.events.each do |event| %>
 
-<div class='event_div'>
-<div class='event_header_div'>
-<h2 class='event_title center'><%= event.title %></h2><br>
-</div>
-<img class='img_center' src='<%= event.image %>'>
-
-
-<table class='event_table'>
+  <div class='event_div'>
+    <div class='event_header_div'>
+      <h2 class='event_title center'><%= event.title %></h2><br>
+    </div>
+  <img class='img_center' src='<%= event.image %>'>
 
 
+    <table class='event_table'>
+      <tr><td><%= event.date %></td>
+      <td><%= event.stadium %></td>
+      <td><%= event.location %></td></tr>
+    </table>
+  <div class='div_center'><button class='ticket_info_button'>Ticket Info</button></div>
 
-<tr><td><%= event.date %></td>
-<td><%= event.stadium %></td>
-<td><%= event.location %></td></tr>
-</table>
-<div class='div_center'><button class='ticket_info_button'>Ticket Info</button></div>
+    <div class='ticket_info_div'>
 
-<div class='ticket_info_div'>
-
-<table class='event_table'>
-<tr><td>Tickets Available: <%= event.ticket_count %></td>
-<td>Lowest Price: <%= event.ticket_count > 0 ? "$#{event.lowest_price}0" : 'N/A' %></td>
-<td><a target="_blank" href='<%= event.buy_url %>'>Buy Tickets</a></td></tr>
-</table>
-<button class='ticket_cancel'>Cancel</button>
-</div>
+      <table class='event_table'>
+        <tr><td>Tickets Available: <%= event.ticket_count %></td>
+        <td>Lowest Price: <%= event.ticket_count > 0 ? "$#{event.lowest_price}0" : 'N/A' %></td>
+        <td><a target="_blank" href='<%= event.buy_url %>'>Buy Tickets</a></td></tr>
+      </table>
+    <button class='ticket_cancel'>Cancel</button>
+    </div>
 
 
 
-<% if current_user %>
-  <form id='subscribe_button' action='/subscriptions' method='post'>
-  <input type='hidden' name='event_id' value='<%= event.id %>'>
-  <button>Subscribe</button>
-  </form>
-<% end %>
+  <% if current_user %>
+    <form class='subscribe_button_form' action='/subscriptions' method='post'>
+      <input type='hidden' name='event_id' value='<%= event.id %>'>
+      <button>Subscribe</button>
+    </form>
+  <% end %>
 
-</div>
+  </div>
 
-<% end %>
+  <% end %>
 </div>

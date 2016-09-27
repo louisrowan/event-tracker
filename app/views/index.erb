@@ -2,14 +2,9 @@
 
 <% if @list %>
 
-<%= erb :'/partials/_events', layout: false, locals: { list: @list} %>
-
-
-</table>
-
+  <%= erb :'/partials/_events', layout: false, locals: { list: @list} %>
 
 <% end %>
-
 
 
 <div id='extra'>
@@ -17,9 +12,7 @@
 
 
 <div id='homepage_div'>
-
-<form id='formy' action='/' method='post'>
-    <input id='homepage_form' type='text' name='event' placeholder='Enter event'>
-</form>
-
+  <form id='formy' action='/' method='post'>
+      <input id='homepage_form' type='text' name='event' placeholder='Enter event'>
+  </form>
 </div>

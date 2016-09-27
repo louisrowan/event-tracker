@@ -5,6 +5,7 @@ $(document).ready(function() {
   registrationButtonListener();
   cancelTicketInfoListener();
   imgHoverListener();
+  subscribeButtonListener();
 
 });
 
@@ -76,5 +77,37 @@ var imgHoverListener = function(){
   $('#extra').on('mouseover', '.event_div', function(){
     console.log('hovering')
     $(this).children('img').css('opacity', '1')
+  })
+}
+
+var subscribeButtonListener = function(){
+  $('#extra').on('submit', '.subscribe_button_form', function(event){
+    event.preventDefault();
+    console.log('in subscribe listener')
+    var subscribeForm = $(this)
+
+    var subscribeURL = $(this).attr('action')
+    var subscribeType = $(this).attr('method')
+    var data = $(this).serialize();
+    console.log(subscribeURL + subscribeType + data)
+
+    var request = $.ajax({
+      url: subscribeURL,
+      type: subscribeType,
+      data: data
+    })
+
+    request.done(function(response){
+      console.log(response)
+      console.log('subscribe success')
+      subscribeForm.children('button').html('Subscribed')
+      subscribeForm.children('button').css('color', 'red')
+    })
+
+    request.fail(function(response){
+      console.log(response)
+      console.log('subscribe fail')
+    })
+
   })
 }

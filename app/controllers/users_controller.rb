@@ -29,10 +29,8 @@ get '/users/:id/edit' do
 end
 
 put '/users/:id' do
-  p current_user.events
-  event = Event.find(params[:id])
+  event = Event.find(params[:event_id])
   current_user.events << event
-  p current_user.events
   redirect '/'
 end
 

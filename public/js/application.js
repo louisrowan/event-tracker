@@ -3,6 +3,8 @@ $(document).ready(function() {
   homeFormEnterListener();
   ticketInfoButtonListener();
   registrationButtonListener();
+  cancelTicketInfoListener();
+  imgHoverListener();
 
 });
 
@@ -39,9 +41,14 @@ var homeFormEnterListener = function(){
 
 
 var ticketInfoButtonListener = function(){
-  $('#extra').on('mouseover', '.ticket_info_button', function(event){
+  $('#extra').on('click', '.ticket_info_button', function(event){
     console.log('mouseover')
     $(this).parent().siblings('.ticket_info_div').toggle();
+    $('#dimmer_div').toggle();
+    $('html, body').css({
+    'overflow': 'hidden',
+    'height': '100%'
+});
   })
 }
 
@@ -50,5 +57,24 @@ var registrationButtonListener = function(){
     event.preventDefault();
     $('#registration_div').toggle();
     $('#dimmer_div').toggle();
+  })
+}
+
+var cancelTicketInfoListener = function(){
+  $('#extra').on('click', '.ticket_cancel', function(){
+    $(this).parent().hide();
+    console.log(this)
+    $('#dimmer_div').toggle();
+    $('html, body').css({
+    'overflow': 'auto',
+    'height': 'auto'
+});
+  })
+}
+
+var imgHoverListener = function(){
+  $('#extra').on('mouseover', '.event_div', function(){
+    console.log('hovering')
+    $(this).children('img').css('opacity', '1')
   })
 }

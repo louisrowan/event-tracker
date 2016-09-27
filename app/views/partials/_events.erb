@@ -1,8 +1,11 @@
+<div class='list_of_events'>
+
 <% list.events.each do |event| %>
 
 <div class='event_div'>
-
-<h1 class='event_title center'><%= event.title %></h1><br>
+<div class='event_header_div'>
+<h2 class='event_title center'><%= event.title %></h2><br>
+</div>
 <img class='img_center' src='<%= event.image %>'>
 
 
@@ -23,6 +26,7 @@
 <td>Lowest Price: <%= event.ticket_count > 0 ? "$#{event.lowest_price}0" : 'N/A' %></td>
 <td><a target="_blank" href='<%= event.buy_url %>'>Buy Tickets</a></td></tr>
 </table>
+<button class='ticket_cancel'>Cancel</button>
 </div>
 
 
@@ -30,10 +34,12 @@
 <% if current_user %>
   <form id='subscribe_button' action='/users/<%= current_user.id %>' method='post'>
   <input type='hidden' name='_method' value='put'>
-  <button value='<%= event.id %>'>Subscribe</button>
+  <input type='hidden' name='event_id' value='<%= event.id %>'>
+  <button>Subscribe</button>
   </form>
 <% end %>
 
 </div>
 
 <% end %>
+</div>

@@ -21,7 +21,8 @@
 <% if current_user %>
   <form action='/users/<%= current_user.id %>' method='post'>
   <input type='hidden' name='_method' value='put'>
-  <button value='<%= event.id %>'>Subscribe</button>
+  <input type='hidden' name='event_id' value='<%= event.id %>'>
+  <button>Subscribe</button>
   </form>
 <% end %>
 
@@ -40,7 +41,7 @@
 
 <% else %>
 
-<h1 id='hi'>Hello</h1>
+<h1 id='hi'>EventTracker</h1>
 <div id='homepage_div'>
 
 <form id='formy' action='/' method='post'>

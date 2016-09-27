@@ -98,8 +98,6 @@ var subscribeButtonListener = function(){
     })
 
     request.done(function(response){
-      console.log(response)
-      console.log('subscribe success')
       subscribeForm.children('button').html('Subscribed')
       subscribeForm.children('button').css('color', 'red')
     })
@@ -107,6 +105,7 @@ var subscribeButtonListener = function(){
     request.fail(function(response){
       console.log(response)
       console.log('subscribe fail')
+      alert('You are already subscribed to this event')
     })
 
   })

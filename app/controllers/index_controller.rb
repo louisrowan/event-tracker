@@ -8,10 +8,10 @@ post '/' do
     t = Event.create(create_event_hash(event))
     @list.events << t
   end
-  p @list
   if request.xhr?
     erb :'/partials/_events', layout: false, locals: { list: @list}
   else
+    puts "*"*100
     erb :index
   end
 end

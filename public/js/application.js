@@ -26,7 +26,7 @@ var homeFormEnterListener = function(){
 
     request.done(function(response){
       $('#extra').html(response)
-      $('#formy').toggle();
+      $('#formy')[0].reset();
 
 
 

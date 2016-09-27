@@ -1,55 +1,25 @@
-<% if @events %>
-
-
-
-<h2>Next 10 Events:</h2>
-
-<% @events.each do |event| %>
-
-<table class='event_table'>
-
-
-<tr><td><%= event.title %></td><td rowspan='7'><img src='<%= event.image %>'></td></tr>
-<tr><td><%= event.date %></td></tr>
-<tr><td><%= event.stadium %></td></tr>
-<tr><td><%= event.location %></td></tr>
-<tr><td>Tickets Available: <%= event.ticket_count %></td></tr>
-<tr><td>Lowest Price: <%= event.ticket_count > 0 ? "$#{event.lowest_price}0" : 'N/A' %></td></tr>
-<tr><td><a target="_blank" href='<%= event.buy_url %>'>Buy Tickets</a></td></tr>
-
-</table>
-<% if current_user %>
-  <form action='/users/<%= current_user.id %>' method='post'>
-  <input type='hidden' name='_method' value='put'>
-  <input type='hidden' name='event_id' value='<%= event.id %>'>
-  <button>Subscribe</button>
-  </form>
-<% end %>
-
-<hr>
-
-
-
-<% end %>
-
-</table>
-
-<form action='/' method='post'>
-    <input type='text' name='event' placeholder='Enter event'>
-    <input type='submit' value='submit'>
-</form>
-
-<% else %>
-
 <h1 id='hi'>EventTracker</h1>
+
+<% if @list %>
+
+<%= erb :'/partials/_events', layout: false, locals: { list: @list} %>
+
+
+</table>
+
+
+<% end %>
+
+
+
+<div id='extra'>
+</div>
+
+
 <div id='homepage_div'>
 
 <form id='formy' action='/' method='post'>
     <input id='homepage_form' type='text' name='event' placeholder='Enter event'>
 </form>
 
-</div>
-<% end %>
-
-<div id='extra'>
 </div>

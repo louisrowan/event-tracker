@@ -1,6 +1,6 @@
-<h1>Hello, <%= current_user.username %>!</h1>
+<h1 class='center'>Hello, <%= current_user.username %>!</h1>
 
-<h2>Here are your watched events</h2>
+<h2 class='center'>Here are your watched events</h2>
 
 <% if @list %>
 <%= erb :'/partials/_events', layout: false, locals: { list: @list} %>

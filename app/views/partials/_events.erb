@@ -1,45 +1,60 @@
 <div class='list_of_events'>
 
-<% list.events.each do |event| %>
+  <% list.events.each do |event| %>
 
-<div class='event_div'>
-<div class='event_header_div'>
-<h2 class='event_title center'><%= event.title %></h2><br>
+  <div class='event_div'>
+    <div class='event_header_div'>
+      <h2 class='event_title center'><%= event.title %></h2><br>
+    </div>
+  <img class='img_center' src='<%= event.image %>'>
+
+
+    <table class='event_table'>
+      <tr><td><%= event.date %></td>
+      <td><%= event.stadium %></td>
+      <td><%= event.location %></td></tr>
+    </table>
+  <div class='div_center'><button class='ticket_info_button'>Ticket Info</button></div>
+
+    <div class='ticket_info_div'>
+    <h3 class='center tix_header'><%= event.title %></h3>
+
+      <table class='event_table'>
+        <tr><td>Tickets Available: <%= event.ticket_count %></td>
+        <td>Lowest Price: <%= event.ticket_count > 0 ? "$#{event.lowest_price}0" : 'N/A' %></td>
+        <td><a target="_blank" href='<%= event.buy_url %>'>Buy Tickets</a></td></tr>
+      </table>
+    <button class='ticket_cancel'>Cancel</button>
+    </div>
+
+
+
+  <% if current_user %>
+  <br>
+
+    <% if subscription_invalid?(event) %>
+
+    <form class='un_subscribe_button_form' action="/subscriptions" method='post'>
+    <input class='unsub_hidden_input' type='hidden' name='_method' value='delete'>
+      <input type='hidden' name='event_id' value='<%= event.id %>'>
+      <button>Un-Subscribe</button>
+    </form>
+
+    <% else %>
+
+    <form class='subscribe_button_form' action='/subscriptions' method='post'>
+      <input type='hidden' name='event_id' value='<%= event.id %>'>
+      <button>Subscribe</button>
+    </form>
+
+    <% end %>
+
+  <% end %>
+  <br>
+  </div>
+
+  <% end %>
 </div>
-<img class='img_center' src='<%= event.image %>'>
+<br>
 
 
-<table class='event_table'>
-
-
-
-<tr><td><%= event.date %></td>
-<td><%= event.stadium %></td>
-<td><%= event.location %></td></tr>
-</table>
-<div class='div_center'><button class='ticket_info_button'>Ticket Info</button></div>
-
-<div class='ticket_info_div'>
-
-<table class='event_table'>
-<tr><td>Tickets Available: <%= event.ticket_count %></td>
-<td>Lowest Price: <%= event.ticket_count > 0 ? "$#{event.lowest_price}0" : 'N/A' %></td>
-<td><a target="_blank" href='<%= event.buy_url %>'>Buy Tickets</a></td></tr>
-</table>
-<button class='ticket_cancel'>Cancel</button>
-</div>
-
-
-
-<% if current_user %>
-  <form id='subscribe_button' action='/users/<%= current_user.id %>' method='post'>
-  <input type='hidden' name='_method' value='put'>
-  <input type='hidden' name='event_id' value='<%= event.id %>'>
-  <button>Subscribe</button>
-  </form>
-<% end %>
-
-</div>
-
-<% end %>
-</div>

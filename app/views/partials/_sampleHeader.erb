@@ -1,0 +1,28 @@
+<div id='header_div'>
+  <table>
+    <tr>
+    <td><a href='/'>Home</a></td>
+
+    <% if current_user %>
+
+    <td><a id='header_profile' href='/users/<%= current_user.id %>'>Your Profile</a></td>
+
+
+    <td><form action='/sessions/<%= current_user.id %>' method='post'>
+<input type='hidden' name='_method' value='delete'>
+<button id='logout_button'>Log out</button>
+</form></td>
+
+    <% else %>
+
+    <td id='login_td'>Log In</td>
+    <td><a id='create_account_link' href='/users/new'>Create Account</a></td>
+
+    <% end %>
+
+    </tr>
+  </table>
+</div>
+
+
+

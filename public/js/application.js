@@ -7,6 +7,7 @@ $(document).ready(function() {
   imgHoverListener();
   subscribeButtonListener();
   unSubscribeButtonListener();
+  loginButtonListener();
 
 });
 
@@ -136,4 +137,12 @@ var unSubscribeButtonListener = function(){
 
   } )
 
+}
+
+
+var loginButtonListener = function(){
+  $('#login_td').on('click', function(){
+    console.log('in login form div')
+    $('.login_form').toggle();
+  })
 }

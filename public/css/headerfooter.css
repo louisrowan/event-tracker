@@ -17,20 +17,13 @@
   padding: 10px;
 }
 
-#create_account_link {
-  position: absolute;
-  right: 0;
-  top: 0;
-}
+
 
 #header a:hover {
   color: gray
 }
 
-#login_form input {
-  margin: 5px;
-  padding: 5px;
-}
+
 
 #header_greeting {
   font-size: 1.6em;
@@ -42,33 +35,19 @@
      border:none;
      font: inherit;
      cursor: pointer;
-     position: absolute;
-     right: 0;
-     top: 0;
      color: white;
      text-decoration: none;
-     font-size: 1.6em;
-     position: absolute;
-     right: 0;
-     top: 0;
-     padding: 15px;
      outline: none;
 }
 
-#logout_button:hover {
-  color: black;
-  background: gray;
-}
+
 
 #home_link {
   position: absolute;
   left: 40%;
 }
 
-#header_profile {
-  position: absolute;
-  left: 60%;
-}
+
 
 #footer {
   background-color: black;
@@ -76,5 +55,50 @@
   width: 100%;
 }
 
+#header_div {
+  background-color: black;
+}
 
+#header_div td {
+  padding: 15px;
+  color: white;
+}
+
+#header_div a {
+  color: white;
+  text-decoration: none;
+}
+
+
+.login_form {
+  color: red;
+  display: none;
+}
+
+.login_form input {
+  color: black;
+  padding: 5px;
+}
+
+.login_form .log_sub_but:hover {
+  color: red;
+}
+
+.login_form .log_sub_but {
+  width: 100%;
+}
+
+#login_form_div {
+  display: inline-block;
+  position: absolute;
+  left: 71px;
+}
+
+#login_td {
+  cursor: pointer;
+}
+
+#header_div td:hover {
+  background-color: gray;
+}
 

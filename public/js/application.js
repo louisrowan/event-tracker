@@ -29,6 +29,7 @@ var homeFormEnterListener = function(){
 
     request.done(function(response){
       $('.list_content_div').html(response)
+      $('#fenway').remove();
       $('#formy')[0].reset();
     })
 
@@ -47,7 +48,6 @@ var ticketInfoButtonListener = function(){
     $('#dimmer_div').toggle();
     $('html, body').css({
     'overflow': 'hidden'
-    // 'height': '100%'
 });
   })
 }
@@ -67,7 +67,6 @@ var cancelTicketInfoListener = function(){
     $('#dimmer_div').toggle();
     $('html, body').css({
     'overflow': 'auto'
-    // 'height': 'auto'
 });
   })
 }
@@ -146,3 +145,5 @@ var loginButtonListener = function(){
     $('.login_form').toggle();
   })
 }
+
+

@@ -6,6 +6,7 @@
 
 body {
   background-color: white;
+  z-index: -1;
 }
 
 #homepage_form {
@@ -26,8 +27,8 @@ body {
 
 #container {
   max-width: 1000px;
-  min-height: 600px;
-  background-color: white;
+  min-height: 800px;
+/*  background-color: white;*/
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -240,5 +241,19 @@ body {
     .event_div:nth-child(2) {
       border-top: none;
     }
+    #container {
+      overflow: auto;
+    }
+}
+
+#fenway {
+  float: left;
+  position: absolute;
+  overflow: hidden;
+  width: 1000px;
+  height: 800px;
+  z-index: -1;
+  opacity: .2;
+  background-image: url('https://www.suiteexperiencegroup.com/wp-content/themes/responsive/images/00000068-03.jpg');
 }
 

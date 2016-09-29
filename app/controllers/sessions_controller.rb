@@ -5,7 +5,7 @@ post '/sessions' do\
   @user = User.authenticate(params[:session])
   if @user
     session[:id] = @user.id
-    redirect "/users/#{@user.id}"
+    redirect '/'
   else
     redirect '/'
   end

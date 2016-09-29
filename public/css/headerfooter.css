@@ -106,3 +106,7 @@
   background-color: gray;
 }
 
+.hello_user {
+  position: absolute;
+  right: 0px;
+}

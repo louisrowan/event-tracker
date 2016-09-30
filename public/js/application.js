@@ -127,7 +127,7 @@ var unSubscribeButtonListener = function(){
     request.done(function(response){
       console.log('success')
       unSubForm.children('button').remove();
-      unSubForm.append('Subscription Canceled')
+      unSubForm.append('<button>Subscription Canceled</button>')
     })
 
     request.fail(function(response){

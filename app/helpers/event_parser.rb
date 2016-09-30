@@ -14,7 +14,7 @@ helpers do
   def create_event_hash(event, i, params)
     hash = {
       title: event["title"],
-      date: Date.parse(event["datetime_local"]).to_s,
+      date: add_date(event["datetime_local"]),
       stadium: event["venue"]["name"],
       location: event["venue"]["extended_address"],
       image: add_giphy(params, i),
@@ -30,6 +30,12 @@ helpers do
     event = event.join('+')
     response = HTTParty.get("http://api.giphy.com/v1/gifs/search?q=#{event}&api_key=dc6zaTOxFJmzC")
     return response["data"][index]["images"]["fixed_height"]["url"]
+  end
+
+  def add_date(string)
+    date = Date.parse(string)
+    result = date.strftime('%a %d %b %Y')
+    return result
   end
 
 end

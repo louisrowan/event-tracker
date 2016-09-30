@@ -45,6 +45,7 @@ body {
   margin: auto;
   width: 90%;
   height: 100px;
+  box-shadow: 5px 5px 5px #888888;
 }
 
 
@@ -59,7 +60,7 @@ body {
   font-size: 4em;
   font-family: 'Faster One', cursive;
   color: transparent;
-  text-shadow: 2px 2px black;
+  text-shadow: 1px 1px black;
   text-decoration: overline underline;
 }
 
@@ -82,6 +83,11 @@ body {
   min-width: 400px;
   box-sizing: border-box;
   border-bottom: 2px solid black;
+}
+
+.event_div:hover {
+  box-shadow: 5px 5px 5px #888888 inset;
+  background-color: #F5F5F5;
 }
 
 .event_div img {
@@ -112,6 +118,7 @@ body {
 .ticket_info_button {
   padding: 15px;
   font-size: 1.5em;
+  box-shadow: 5px 5px 5px #888888;
 }
 
 .ticket_info_button:hover {

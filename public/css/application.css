@@ -257,3 +257,8 @@ body {
   background-image: url('https://www.suiteexperiencegroup.com/wp-content/themes/responsive/images/00000068-03.jpg');
 }
 
+.errors_div {
+  color: red;
+  font-size: 1.5em;
+}
+

@@ -31,10 +31,14 @@ var homeFormEnterListener = function(){
       $('.list_content_div').html(response)
       $('#fenway').remove();
       $('#formy')[0].reset();
+      $('.errors_div').hide();
     })
 
     request.fail(function(response){
       console.log('request bad')
+      console.log(response)
+      $('.errors_div').append(response.responseText)
+      $('#formy')[0].reset();
     })
 
   })

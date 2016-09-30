@@ -13,7 +13,7 @@ post '/users' do
   @user = User.new(params[:user])
   if @user.save
     session[:id] = @user.id
-    erb :'/users/show'
+    erb :index
   else
     erb :'/users/new'
   end

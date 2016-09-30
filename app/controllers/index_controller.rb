@@ -4,8 +4,8 @@ end
 
 post '/' do
   @list = List.create
-  create_body(params[:event]).each do |event|
-    t = Event.create(create_event_hash(event))
+  create_body(params[:event]).each_with_index do |event, i|
+    t = Event.create(create_event_hash(event, i, params[:event]))
     @list.events << t
   end
   if @list.events.count > 0

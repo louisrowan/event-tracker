@@ -23,3 +23,7 @@ Results shown here are for a search of upcoming San Francisco 49ers events. All 
 
 
 ### How I did it
+
+This project was completed in my 6th week at Dev Bootcamp, and was built using Sinatra, Ruby, JavaScript (AJAX and JQuery), as well as both the SeatGeek and Giphy APIs.
+
+When a user enters a search term, their input is sent through a parsing algorithm to construct a search URL that can be read by the SeatGeek and Giphy APIs. The response from the APIs is then parsed for only the relevent information, which is sent immidately to the front-end via AJAX where it is displayed in a readable and human-friendly format.

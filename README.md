@@ -17,5 +17,9 @@ My solution to this problem is Event Tracker, a simple app that can be accessabl
 
 This information is all shown on one page in an easy-to-read format. A user is also able to save any event to their profile page, for easy access later.
 
+![Alt text](./public/images/readme_img2.JPG?raw=true "Second IMG")
+
+Results shown here are for a search of upcoming San Francisco 49ers events. All relevant info is available right on the same page, and specific ticket info is instantly displayed upon clicking 'Ticket Info' to allow for a cleaner, more readable interface.
+
 
 ### How I did it
